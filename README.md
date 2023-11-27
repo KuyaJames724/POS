@@ -32,7 +32,18 @@ as large retail chains.
 4. Data Analytics:
 a. Sales Reports: Provide real-time sales reports and analytics to help businesses
 track performance and make data-driven decisions.
+
 b. Inventory Management: Implement inventory tracking and alerts to avoid
 stockouts and overstock situations.
 c. Customer Insights: Gather and analyze customer data to personalize marketing
 strategies and improve customer retention.
+
+# Notes for Team Members
+I'm using Visual Code yet, any other IDE can work.
+Use these dotnet CLI commands in order to work on this project:
+dotnet add package Microsoft.EntityFrameworkCore
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.EntityFrameworkCore.Tools
+dotnet add package Microsoft.EntityFrameworkCore.Sqlite
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
