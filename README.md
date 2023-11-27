@@ -41,9 +41,22 @@ strategies and improve customer retention.
 # Notes for Team Members
 I'm using Visual Code yet, any other IDE can work.
 Use these dotnet CLI commands in order to work on this project:
+```
 dotnet add package Microsoft.EntityFrameworkCore
 dotnet add package Microsoft.EntityFrameworkCore.Design
 dotnet add package Microsoft.EntityFrameworkCore.Tools
 dotnet add package Microsoft.EntityFrameworkCore.Sqlite
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+```
+```
+// TODO: Create DbContext files
+
+// TODO: Create 3 different models
+
+// TODO: Must create at least 4 different endpoints using 2 different models
+
+// TODO: Create and validate username and a password from a user database table that contains hashed passwords
+
+// TODO: Create two users predefined in user table with different roles (one of front of house and a manager)
+```
