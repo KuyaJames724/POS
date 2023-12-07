@@ -1,4 +1,4 @@
-//using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using UserData;
 using PasswordHasher;
@@ -12,22 +12,41 @@ using Microsoft.Extensions.Logging.Abstractions;
 
 public class _DbContext : DbContext
 {
+
+     private readonly IConfiguration _configuration;
+
+    public _DbContext(DbContextOptions<_DbContext> options, IConfiguration configuration) : base(options)
+    {
+        _configuration = configuration;
+    }
     public _DbContext(DbContextOptions<_DbContext> options) : base(options)
     {
     }
 
-    // DbSet properties
-    
     public DbSet<User> Users { get; set; }
 
+    
+     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        if (!optionsBuilder.IsConfigured)
+        {
+            optionsBuilder.UseSqlite(_configuration.GetConnectionString("_DbContext"));
+        }
+    }
+    // DbSet properties
+    
+    
+
      // Method for seeding tables
-    // public void SeedData()
-    //{
+     public void SeedData()
+    {
         
 
-   // }
+        InsertInitialUsers();
+        // Other tables to seed here
+    }
 
-     public void InsertInitialProducts()
+     public void InsertInitialUsers()
     {
         
 

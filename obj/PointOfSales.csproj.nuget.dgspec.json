@@ -38,10 +38,6 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "Bcrypt.Net-Core": {
-              "target": "Package",
-              "version": "[1.6.0, )"
-            },
             "Bcrypt.Net-Next": {
               "target": "Package",
               "version": "[4.0.0, )"
