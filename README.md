@@ -50,9 +50,9 @@ dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 ```
 ```
-// TODO: Create DbContext files
+// COMPLETED: Create DbContext files
 
-// TODO: Create 3 different models
+// COMPLETED: Create 3 different models 
 
 // TODO: Must create at least 4 different endpoints using 2 different models
 
