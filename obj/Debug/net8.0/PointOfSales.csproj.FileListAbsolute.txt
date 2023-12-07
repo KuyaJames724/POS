@@ -1,0 +1,8 @@
+/Users/saddhat/Desktop/Final project/POS/obj/Debug/net8.0/PointOfSales.csproj.AssemblyReference.cache
+/Users/saddhat/Desktop/Final project/POS/obj/Debug/net8.0/PointOfSales.GeneratedMSBuildEditorConfig.editorconfig
+/Users/saddhat/Desktop/Final project/POS/obj/Debug/net8.0/PointOfSales.AssemblyInfoInputs.cache
+/Users/saddhat/Desktop/Final project/POS/obj/Debug/net8.0/PointOfSales.AssemblyInfo.cs
+/Users/saddhat/Desktop/Final project/POS/obj/Debug/net8.0/PointOfSales.csproj.CoreCompileInputs.cache
+/Users/saddhat/Desktop/Final project/POS/obj/Debug/net8.0/PointOfSales.MvcApplicationPartsAssemblyInfo.cs
+/Users/saddhat/Desktop/Final project/POS/obj/Debug/net8.0/PointOfSales.MvcApplicationPartsAssemblyInfo.cache
+/Users/saddhat/Desktop/Final project/POS/obj/Debug/net8.0/PointOfSales.sourcelink.json

@@ -1,9 +1,61 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+var Configuration = new ConfigurationBuilder()
+    .SetBasePath(builder.Environment.ContentRootPath)
+    .AddJsonFile("appsettings.json")
+    .Build();
+
+// Add services to the container
+builder.Services.AddDbContext<_DbContext>(options =>
+{
+    options.UseSqlite(builder.Configuration.GetConnectionString("_DbContext") ?? throw new InvalidOperationException("SQLite connection string is missing."));
+    options.EnableSensitiveDataLogging();
+});
+
+builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<TokenService>();
+
+// Add JWT authentication
+var jwtSecret = "drowssap"; // Replace with a strong secret key
+var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSecret));
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration["JwtSettings:SecretKey"])),
+            ValidIssuer = builder.Configuration["JwtSettings:Issuer"], // Retrieve issuer from configuration
+            ValidAudience = builder.Configuration["JwtSettings:Audience"], // Retrieve audience from configuration
+        };
+        
+    });
+
+builder.Services.AddAuthorization(options =>
+{
+    
+    options.AddPolicy("AdminPolicy", policy => policy.RequireRole("Admin"));
+    options.AddPolicy("UserPolicy", policy => policy.RequireRole("User"));
+});
+
+builder.Services.AddSingleton(builder.Configuration);
 
 var app = builder.Build();
 
@@ -16,29 +68,22 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+app.UseAuthorization();
 
-app.MapGet("/weatherforecast", () =>
+app.MapControllers();
+
+// Apply migrations on startup
+using (var scope = app.Services.CreateScope())
 {
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast")
-.WithOpenApi();
+    var services = scope.ServiceProvider;
+    var dbContext = services.GetRequiredService<DbContext>();
+    dbContext.Database.Migrate();
+
+    var dataContext = new DbContext(services.GetRequiredService<DbContextOptions<DbContext>>());
+    dataContext.SeedData();
+
+}
+
+
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
