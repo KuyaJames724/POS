@@ -1,12 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "1y3/ACPB2KX2PW2Ii2JxAvjPA6Vo8YjymRFEhyvkth0nnblntRoxSRiRxG5UI22zhzXOWtJ89zMllLFrYIpZPw==",
+  "dgSpecHash": "nINdVMAhK84tXX2PDA3lRrWb5gY0mbLB5tTXO5k/NzJITPOFCOLgzO1jBDpNccB9ZwI5LiCs/83w1Et6SldmzA==",
   "success": true,
   "projectFilePath": "/Users/saddhat/Desktop/Final project/POS/PointOfSales.csproj",
   "expectedPackageFiles": [
     "/Users/saddhat/.nuget/packages/azure.core/1.25.0/azure.core.1.25.0.nupkg.sha512",
     "/Users/saddhat/.nuget/packages/azure.identity/1.7.0/azure.identity.1.7.0.nupkg.sha512",
-    "/Users/saddhat/.nuget/packages/bcrypt.net-core/1.6.0/bcrypt.net-core.1.6.0.nupkg.sha512",
     "/Users/saddhat/.nuget/packages/bcrypt.net-next/4.0.0/bcrypt.net-next.4.0.0.nupkg.sha512",
     "/Users/saddhat/.nuget/packages/humanizer/2.14.1/humanizer.2.14.1.nupkg.sha512",
     "/Users/saddhat/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
