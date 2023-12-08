@@ -24,9 +24,9 @@ public class _DbContext : DbContext
     }
 
     public DbSet<User> Users { get; set; }
-    public object Products { get; internal set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    
+     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (!optionsBuilder.IsConfigured)
         {
@@ -88,5 +88,14 @@ public class _DbContext : DbContext
 
         modelBuilder.Entity<User>().ToTable("Users");
     }  
+
+    public DbSet<Products> Products { get; set; }
 }
 
+public class Products
+{
+    public string? name { get; set; }
+    public double price { get; set; }
+    public int Quantity { get; set; }
+    public int ID { get; set; }
+    public int QuantitySold { get; set; }} // Add closing curly brace here
