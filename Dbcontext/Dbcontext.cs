@@ -24,9 +24,9 @@ public class _DbContext : DbContext
     }
 
     public DbSet<User> Users { get; set; }
+    public object Products { get; internal set; }
 
-    
-     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (!optionsBuilder.IsConfigured)
         {

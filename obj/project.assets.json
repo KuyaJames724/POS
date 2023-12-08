@@ -8249,19 +8249,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/saddhat/.nuget/packages/": {}
+    "/Users/jamesmiller/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/saddhat/Desktop/Final project/POS/PointOfSales.csproj",
+      "projectUniqueName": "/Users/jamesmiller/Desktop/SENG3000PROJECT/POS/PointOfSales.csproj",
       "projectName": "PointOfSales",
-      "projectPath": "/Users/saddhat/Desktop/Final project/POS/PointOfSales.csproj",
-      "packagesPath": "/Users/saddhat/.nuget/packages/",
-      "outputPath": "/Users/saddhat/Desktop/Final project/POS/obj/",
+      "projectPath": "/Users/jamesmiller/Desktop/SENG3000PROJECT/POS/PointOfSales.csproj",
+      "packagesPath": "/Users/jamesmiller/.nuget/packages/",
+      "outputPath": "/Users/jamesmiller/Desktop/SENG3000PROJECT/POS/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/saddhat/.nuget/NuGet/NuGet.Config"
+        "/Users/jamesmiller/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"

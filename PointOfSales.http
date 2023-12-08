@@ -4,3 +4,13 @@ GET {{PointOfSales_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
+
+DELETE {{PointOfSales_HostAddress}}/products/1
+Content-Type: application/json
+
+###
+
+DELETE {{PointOfSales_HostAddress}}/user/1
+Content-Type: application/json
+
+###
