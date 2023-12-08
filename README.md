@@ -54,9 +54,17 @@ dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 
 // COMPLETED: Create 3 different models 
 
-// TODO: Must create at least 4 different endpoints using 2 different models
+// COMPLETED: Must create at least 4 different endpoints using 2 different models
 
 // TODO: Create and validate username and a password from a user database table that contains hashed passwords
 
-// TODO: Create two users predefined in user table with different roles (one of front of house and a manager)
+// COMPLETED: Create two users predefined in user table with different roles (one of front of house and a manager)
+
+// TODO: Role and username/email address must be included in JWT claims
+
+// TODO: Must return an appropriate http status code if authentication failed
+
+// TODO: Create at least FIVE pages for the website layout
+
+// TODO: Create Login Page
 ```
