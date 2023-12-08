@@ -63,4 +63,38 @@ public class SecurityController : ControllerBase
             return Forbid(); // Return a 403 Forbidden response if the user is not authorized.
         }
     }
+
+    [Authorize(Policy = "AdminPolicy")]
+    [HttpDelete("products/{id}")]
+    public IActionResult DeleteProduct(int id)
+    {
+        var product = _context.Products.Find(id);
+
+        if (product == null)
+        {
+            return NotFound(); // Return a 404 Not Found response if the product is not found
+        }
+
+        _context.Products.Remove(product);
+        _context.SaveChanges();
+
+        return NoContent(); // Return a 204 No Content response if the product is successfully deleted
+    }
+
+    [Authorize(Policy = "AdminPolicy")]
+    [HttpDelete("users/{id}")]
+    public IActionResult DeleteUser(int id)
+    {
+        var user = _context.Users.Find(id);
+
+        if (user == null)
+        {
+            return NotFound(); // Return a 404 Not Found response if the user is not found
+        }
+
+        _context.Users.Remove(user);
+        _context.SaveChanges();
+
+        return NoContent(); // Return a 204 No Content response if the user is successfully deleted
+    }
 }
